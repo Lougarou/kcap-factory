@@ -3,6 +3,10 @@
 Walk a pixel-art factory floor built from the coding-agent sessions your team records with
 [KCap](https://github.com/kurrent-io/kcap-cli) (Kurrent Capacitor), right in your browser.
 
+> **You need KCap first.** The factory reads everything through the `kcap` CLI and its sign-in.
+> [Install KCap](#install-kcap) below, or see the
+> [kcap-cli getting started guide](https://github.com/kurrent-io/kcap-cli#getting-started).
+
 ![The factory floor, on demo data](docs/floor.jpg)
 
 | On the floor | In KCap |
@@ -23,19 +27,47 @@ pallet lists what shipped.
 
 ![Asking a pallet what shipped, on demo data](docs/yard.jpg)
 
-## Prerequisites
+## Install KCap
 
-1. **KCap, installed and signed in.** The factory reads everything through the `kcap` CLI and
-   its stored login, so set that up first:
+KCap records your coding-agent sessions and serves them from a KCap workspace. Install it and
+sign in before running the factory.
 
-   ```sh
-   npm install -g @kurrent/kcap
-   kcap setup
-   ```
+macOS and Linux:
 
-   See the [kcap-cli README](https://github.com/kurrent-io/kcap-cli#readme) for details. Check it
-   works with `kcap sessions --json`.
-2. **Node.js 22** or later.
+```sh
+curl -fsSL https://www.kurrent.io/install | bash
+```
+
+Windows (PowerShell):
+
+```powershell
+irm https://www.kurrent.io/install.ps1 | iex
+```
+
+Or with npm (needs Node.js):
+
+```sh
+npm install -g @kurrent/kcap
+kcap setup
+```
+
+The installers run `kcap setup` for you on a first install. Setup signs you in, finds your
+workspace (or offers to create one) and installs KCap into the coding agents it finds. Check it
+worked with:
+
+```sh
+kcap status
+kcap sessions --repo all --since 7d --json
+```
+
+The second command should list your recent sessions. If it does, the factory can see them too.
+The [kcap-cli README](https://github.com/kurrent-io/kcap-cli#readme) covers supported platforms,
+self-hosted servers and troubleshooting.
+
+## Requirements
+
+- KCap, installed and signed in (above), with `kcap` on your `PATH`.
+- Node.js 22 or later.
 
 ## Run it
 
@@ -66,7 +98,7 @@ no network at all.
 The factory is read-only: it never writes to KCap, GitHub or your tracker. It uses your own KCap
 login, so it shows exactly the sessions you are allowed to see and nothing else:
 
-- `kcap sessions --json`: the sessions you can see. This listing is the only source of workers;
+- `kcap sessions --repo all --since 7d --json`: the sessions you can see. This listing is the only source of workers;
   everything else is read through a session it returned.
 - `GET /api/work-items/…`: the issue each session is on, its plan and blockers.
 - `GET /api/sessions/{id}/pull-requests`: a session's pull requests and their state.
