@@ -85,3 +85,7 @@ npm test           # tests only
 
 `dev/` holds tools for working on the renderer: `preview.mts` renders a floor to a PNG,
 `ascii.mts` prints its layout, and `survey-live.mts` dumps what your KCap login sees as JSON.
+
+## License
+
+[MIT](LICENSE)

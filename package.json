@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Walk a pixel factory floor built from your team's KCap coding-agent sessions, issues and pull requests, in your browser",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "start": "tsx src/web/server.ts",
