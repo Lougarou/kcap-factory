@@ -1,0 +1,21 @@
+{
+  "name": "kcap-factory",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Walk a pixel factory floor built from your team's KCap coding-agent sessions, issues and pull requests, in your browser",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/web/server.ts",
+    "demo": "tsx src/web/server.ts --demo",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p web/tsconfig.json",
+    "check": "tsc --noEmit && tsc --noEmit -p web/tsconfig.json && vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "esbuild": "^0.24.0",
+    "tsx": "4.19.2",
+    "typescript": "5.9.3",
+    "vitest": "2.1.8"
+  }
+}

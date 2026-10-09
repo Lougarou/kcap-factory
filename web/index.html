@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kurrent Works</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <canvas id="view"></canvas>
+    <header id="hud">
+      <strong>KURRENT WORKS</strong>
+      <span id="census"></span>
+      <span id="status"></span>
+      <span id="fps"></span>
+    </header>
+    <section id="loading">
+      <h1>KURRENT WORKS</h1>
+      <div class="bar"><div id="bar-fill"></div></div>
+      <p id="loading-label">Setting out…</p>
+      <p id="loading-error" class="error"></p>
+    </section>
+    <aside id="panel" hidden>
+      <h2 id="panel-title"></h2>
+      <div id="panel-body"></div>
+      <footer>
+        <a id="panel-open" target="_blank" rel="noopener noreferrer" hidden>Open in browser ↗</a>
+        <button id="panel-close" type="button">Close (Esc)</button>
+      </footer>
+    </aside>
+    <footer id="keys">
+      ←↑↓→ / WASD walk · Enter / Space / click talk · Z or mouse wheel zoom · G graphics · ? help
+    </footer>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
